@@ -7,7 +7,7 @@ REPORT ZFC_BAPI_FLIGHT_GET_DETAIL.
 
 class flight DEFINITION. "Class Tanımlama
   PUBLIC SECTION. "Public alan
-    METHODS get_data IMPORTING air_id type BAPISFLKEY-AIRLINEID "Birtane methodumuz varmış 3 tane parametre alıyormuş
+    METHODS get_data IMPORTING air_id type BAPISFLKEY-AIRLINEID "Birtane methodumuz var ve 3 tane parametre alıyor
                                air_conn type BAPISFLKEY-CONNECTID
                                air_date type BAPISFLKEY-FLIGHTDATE.
 

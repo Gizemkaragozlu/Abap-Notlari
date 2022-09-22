@@ -34,7 +34,7 @@ at selection-screen on value-request for p_file.
     importing
       file_name = p_file.
 
-  call function 'TEXT_CONVERT_XLS_TO_SAP'"Dosya yolundan exceli tabloya atma
+  call function 'TEXT_CONVERT_XLS_TO_SAP'"Dosya yolundan excel içindeki veriyi tabloya atma
     exporting
 *     I_FIELD_SEPERATOR    =
 *     I_LINE_HEADER        =

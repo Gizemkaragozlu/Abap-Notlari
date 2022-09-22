@@ -5,9 +5,9 @@
 *&---------------------------------------------------------------------*
 
 
-DATA : it_itab TYPE STANDARD TABLE OF zfc_table WITH HEADER LINE.
+DATA : it_itab TYPE STANDARD TABLE OF zfc_table WITH HEADER LINE."Kendi oluşturdugum bir tablo için internal tablo açıyorum
 
-data lv_file type string.
+data lv_file type string."Dosya adını tutcak degisken
 
 
 -------FRM--------
@@ -16,13 +16,13 @@ data lv_file type string.
 *&  Include           ZFC_TEXT_TO_TABLE_FRM
 *&---------------------------------------------------------------------*
 
-form get_data USING p_file.
+form get_data USING p_file."Dosya adını form forma parametre olarak vercegim
 
 CALL FUNCTION 'GUI_UPLOAD'
   EXPORTING
-    filename                      = p_file
+    filename                      = p_file"Dosya adını alır
 *   FILETYPE                      = 'ASC'
-   HAS_FIELD_SEPARATOR           = '#'
+   HAS_FIELD_SEPARATOR           = '#'"Elbetteki seperator aracları kullanırak bu işlem yapılır bir alv cıktıssı kullanılarak text işlemini parcalayabiliyoruz
 *   HEADER_LENGTH                 = 0
 *   READ_BY_LINE                  = 'X'
 *   DAT_MODE                      = ' '
@@ -36,13 +36,15 @@ CALL FUNCTION 'GUI_UPLOAD'
 *   FILELENGTH                    =
 *   HEADER                        =
   TABLES
-    data_tab                      = it_itab[].
+    data_tab                      = it_itab[]."Text bize tablo olarak doner
 
-LOOP AT it_itab[] ASSIGNING FIELD-SYMBOL(<ifs_itab>).
-  "EBELN  BSART AEDAT AEDAT2  ERNAM TXZ01
-  IF <ifs_itab>-aedat eq 0 or <ifs_itab>-aedat2 eq 0.
+LOOP AT it_itab[] ASSIGNING FIELD-SYMBOL(<ifs_itab>)."Loop içinde text içinden aldıgımız tabloyu doneriz fieldsymbol yardımı ile
 
-    SHIFT <ifs_itab>-aedat LEFT DELETING LEADING '0'.
+  "EBELN  BSART AEDAT AEDAT2  ERNAM TXZ01"Kolon adlarımı
+
+  IF <ifs_itab>-aedat eq 0 or <ifs_itab>-aedat2 eq 0."Eger kolonlar boşsa(0) yani
+
+    SHIFT <ifs_itab>-aedat LEFT DELETING LEADING '0'."Kolon degerlerini sileriz ve temizleriz
     SHIFT <ifs_itab>-aedat2 LEFT DELETING LEADING '0'.
 
   ENDIF.
@@ -58,14 +60,14 @@ ENDFORM.
 *  -->  p1        text
 *  <--  p2        text
 *----------------------------------------------------------------------*
-form display_alv .
+form display_alv ."Reuse alv kullarak ekrana basma işlemi yapacagız
 
 call function 'REUSE_ALV_GRID_DISPLAY'
  EXPORTING
-   I_CALLBACK_PROGRAM                = sy-repid
-   I_STRUCTURE_NAME                  = 'ZFC_TABLE'
+   I_CALLBACK_PROGRAM                = sy-repid"Rapor ismini sistem structrından alırız
+   I_STRUCTURE_NAME                  = 'ZFC_TABLE'"Sistem içindeki tablo adını structre gibi kullanarak fieldcatalog kullanmadan ekrana basarız
   tables
-    t_outtab                          = it_itab[]
+    t_outtab                          = it_itab[]"Textten donen tabloyu yazdır deriz
  EXCEPTIONS
    PROGRAM_ERROR                     = 1
    OTHERS                            = 2
@@ -83,11 +85,11 @@ REPORT ZFC_TEXT_TO_TABLE.
 INCLUDE  ZFC_TEXT_TO_TABLE_TOP.
 INCLUDE  ZFC_TEXT_TO_TABLE_FRM.
 
-PARAMETERS: P_FILE LIKE RLGRAP-FILENAME DEFAULT 'C:\'.
+PARAMETERS: P_FILE LIKE RLGRAP-FILENAME DEFAULT 'C:\'."Varsayılan dosya adımız c diski
 
-AT SELECTION-SCREEN ON VALUE-REQUEST FOR P_FILE.
+AT SELECTION-SCREEN ON VALUE-REQUEST FOR P_FILE."Parametrenin searchhelpine basarak 
 
-CALL FUNCTION 'WS_FILENAME_GET'
+CALL FUNCTION 'WS_FILENAME_GET'"Open file dialog gibi calışan fonksyonumuzu tetikleriz
 EXPORTING
 DEF_PATH = P_FILE
 MASK = ',..'
@@ -104,8 +106,8 @@ OTHERS = 5.
 
 
 
-START-OF-SELECTION.
-lv_file = p_file.
+START-OF-SELECTION."Ve rapor run edildiginde
+lv_file = p_file."Parametreden donen degeri degiskene veirirz
 
-  PERFORM get_data USING lv_file.
-  PERFORM display_alv.
+  PERFORM get_data USING lv_file."Perform il eoluştrudugumuz formları tetikleriz
+  PERFORM display_alv."Reuse alv yi goruntuleriz

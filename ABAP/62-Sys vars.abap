@@ -9,3 +9,4 @@ WRITE:/ ‘Column No :’, SY-COLNO.
 WRITE:/ ‘Index:’ , SY-INDEX.
 WRITE:/ ‘Statu :’ , SY-SUBRC.
 WRITE:/ ‘Transaction :’,SY-TCODE.
+WRITE:/ 'Report  :',SY-REPID.

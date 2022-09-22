@@ -1,12 +1,12 @@
-field symbol structe veya herhangi bi veri uzerinde değiştiridimiz veriyi anında assign etmemizi saglar
+"field symbol structure veya herhangi bi veri uzerinde değiştiridimiz veriyi anında assign etmemizi saglar
 
-ornek bi tablo içinden bi veri değiştircez
-bunu loopa alıyoruz. 
+"ornek bi tablo içinden bi veri değiştircez
+"bunu loopa alıyoruz. 
 
 loop at gt_table into gs_table.
 
-gs_tablın istenen degerine if ile geldigimizde 
-structreın herhangi bi veirisni degiştigimizde tabloyu modify etmeden de direk tablomuzun etkilenmesin saglar
+"gs_tablın istenen degerine if ile geldigimizde 
+"structreın herhangi bi veirisni degiştigimizde tabloyu modify etmeden de direk tablomuzun etkilenmesin saglar
 
 endloop.
 
@@ -17,7 +17,7 @@ ornk2:
 
 merhaba size şu an anlatacağım konuyu tam olarak anlayabilirseniz standart programlardaki değişken değerlerini bile repair yapmadan değiştirebilirsiniz. şimdi zdeneme diye bir rapor oluşturalım. bu raporda lv_name adında local bir değişken tanımlayalım ve bu değişkeni bir fonksiyona export edip, fonksiyondan dönen değer ile birlikte ekrana yazdıralım. normal şartlarda export ettiğimiz değişkenin değerinin değişmemesi gerekiyor. ama bunu field symbol kullanarak değiştirebiliriz. aşağıdaki fonksiyonda fonksiyonu çağıran programın içindeki değişkene bellekten erişip değerini değiştiriyoruz.
 
-sonuç olarak lv_name = ‘Serkan’ yazması gerekirken bu değişkenin değerini fonksiyon içerisinde değiştirdiğimiz için lv_name = ‘Ozcan’ olmuştur. lv_name2 = ‘test Serkan’ olarak belirlenmiştir.
+sonuç olarak lv_name = 'Furkan' yazması gerekirken bu değişkenin değerini fonksiyon içerisinde değiştirdiğimiz için lv_name = ‘Cosgun’ olmuştur. lv_name2 = ‘test furkan’ olarak belirlenmiştir.
 
 *&---------------------------------------------------------------------*
 *& Report zdeneme
@@ -29,7 +29,7 @@ REPORT zdeneme.
 DATA: lv_name TYPE text255,
 lv_name2 TYPE text255.
  
-lv_name = 'Serkan'.
+lv_name = 'Furkan'.
  
 CALL FUNCTION 'ZDENEMEFONKSIYON'
 EXPORTING
@@ -57,7 +57,7 @@ DATA: lv_field(30).
 lv_field = '(ZDENEME)LV_NAME'.
 ASSIGN (lv_field) TO <fs>.
 IF <fs> İS ASSIGNED.
-<fs> = 'Ozcan'.
+<fs> = 'Cosgun'.
 ENDIF.
  
 ENDFUNCTION.

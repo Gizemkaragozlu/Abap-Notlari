@@ -15,8 +15,9 @@ START-OF-SELECTION.
 
 SELECT * from scarr INTO TABLE GT_TABLE.
 
-  "READ TABLE gt_table into gs_table WITH KEY carrid = 'AZ'. "tablodan gelen veri içinden readtable ile şart koyma
-*  READ TABLE gt_table into gs_table WITH KEY carrname = 'Air Canada'. "tablodan gelen veri içinden readtable ile şart koyma
+  "READ TABLE gt_table into gs_table WITH KEY carrid = 'AZ'. "tablodan gelen veri içinden readtable ile şart koyma  bu durumda sadece carrid AZ olanı alcaktır "egerki sy-subrc ile şartalamak istersek aynı şarta ait birden cok kayıt varsa subrc 1 donmektedir
+*  READ TABLE gt_table into gs_table WITH KEY carrname = 'Air Canada'. "tablodan gelen veri içinden readtable ile şart koyma carrname alanı sadece 
+	"Aır canada olan gelcektir
 *
 *
 *

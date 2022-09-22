@@ -30,7 +30,7 @@ START-OF-SELECTION.
     gv_index = gv_index + 1. "sonsuz donguye girmesin diye de index 1 artar"
   ENDDO.
 
-  gv_chkBox = abap_true. "ekran gelmeden once deger ataması yapabiliriz
+  gv_chkBox = abap_true. "ekran gelmeden once deger ataması yapabiliriz checkbox secilmiş olcaktır
   call SCREEN 0100. "butun işlemleri ekran gelmeden once yapmak gereklidir aksi halde verilere erişemeyiz"
 
 
@@ -39,7 +39,7 @@ START-OF-SELECTION.
 *&---------------------------------------------------------------------*
 *       text
 *----------------------------------------------------------------------*
-MODULE STATUS_0100 OUTPUT. "Pbo yapımz ekran gelmeden onceki"
+MODULE STATUS_0100 OUTPUT. "Pbo yapımz ekran gelmeden once tetiklenir"
   SET PF-STATUS '0100_STATUS'.
 *  SET TITLEBAR 'xxx'.
 
@@ -57,7 +57,7 @@ ENDMODULE.
 *&---------------------------------------------------------------------*
 *       text
 *----------------------------------------------------------------------*
-MODULE USER_COMMAND_0100 INPUT. "Pai yapımız ekran geldikten sonra ki yapı"
+MODULE USER_COMMAND_0100 INPUT. "Pai yapımız ekran geldikten sonra input(Tıklama,Giriş vs) yakalamk için kullancagımız yapıdır"
 
 
 CASE sy-ucomm.

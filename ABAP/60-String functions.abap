@@ -9,7 +9,7 @@ WRITE:/ 'Y2 — ', y2.
 WRITE:/ 'Z3 — ', z3.
 
 ---------------------------------------SEARCH
-DATA: string(30) VALUE ‘SAP ABAP Developers’,"30 karakterlik bir değiken içinde deger olan
+DATA: string(30) VALUE ‘SAP ABAP Developers’,"30 karakterlik degeri olan bir degisken
 str(10) VALUE ‘ABAP’."10 karakterlik içinde deger olan değişken 
 
 SEARCH string FOR str."Search fonk ile string değişkeni içinde str değişkenini arar
@@ -19,13 +19,13 @@ ELSE."Yoksa
 WRITE:/ ‘Not found’.
 ENDIF.
 ---------------------------------------CONDANSE
-CONDENSE string. "Stringin başındaki ve sonunda boşlukları temizlker
+CONDENSE string. "Stringin başındaki ve sonunda boşlukları temizler
 ---------------------------------------REPLACE
 DATA: gv_exp1 TYPE string VALUE ‘SAP ABAP & Developers’, "içinde deger olan bir string değişken
 gv_exp2 TYPE string VALUE ‘World’. "içinde deger olan ikinci değişken
  
 REPLACE ‘Developers’ WITH gv_exp2 INTO gv_exp1.
-"replace func ile developers alanını degişken ikiyle degiştirir degişken bir içindeki
+"replace func ile developers alanını gv_exp2 ile degistirir ve gv_exp1 içine sonuc degerini ekler
 
 WRITE:/ gv_exp1.
 ----------------------------------------

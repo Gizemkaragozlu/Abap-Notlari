@@ -13,10 +13,10 @@ WRITE:/ ‘Using Statement’.
 WRITE:/ a, b, c, d.
 
 *Using Keywords
-add 10 to a.
-subtract 5 from b.
-multiply c by 2.
-divide d by 2.
+add 10 to a."Toplama & ekleme
+subtract 5 from b."Çıkaram 
+multiply c by 2."Carpma
+divide d by 2."Bolme
 
 WRITE:/ ‘Using Keywords’.
 WRITE:/ a, b, c, d.

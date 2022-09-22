@@ -1,1 +1,0 @@
-se80 ile paket yonetici kodu

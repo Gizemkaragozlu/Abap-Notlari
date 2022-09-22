@@ -1,14 +1,14 @@
-For All Entries, JOIN yapamıyacağımız tablolar için kullanılır. Örneğin BSEG(FI Belge Kalemi Tablosu) bir cluster tablo yapısına sahip olduğundan dolayı bu tabloya JOIN işlemi gerçekleştirilemez. Bundan dolayı bu tablo ile ilgili bir işlem yapılacağında bu tabloya For All Entries kuralı ile bağlanılır.
+"For All Entries, JOIN yapamıyacağımız tablolar için kullanılır. Örneğin BSEG(FI Belge Kalemi Tablosu) bir cluster tablo yapısına sahip olduğundan dolayı bu tabloya JOIN işlemi gerçekleştirilemez. Bundan dolayı bu tablo ile ilgili bir işlem yapılacağında bu tabloya For All Entries kuralı ile bağlanılır.
 
-For All Entries, kuralı uygulanırken, okunacak verilerden bir anahtar tablo oluşturulur. Daha sonra bu anahtar tablodaki tüm kayıtlar için SELECT komutu tek adımda çalıştırılır.
+"For All Entries, kuralı uygulanırken, okunacak verilerden bir anahtar tablo oluşturulur. Daha sonra bu anahtar tablodaki tüm kayıtlar için SELECT komutu tek adımda çalıştırılır.
 
-For All Entries kullanımında dikkat edilmesi gereken nokta ise, eğer anahtar tablonuz boş ise tüm kayıtlar okunur. Bu nedenle For All Entries yazmadan önce mutlaka anahtar tablonun boş olup olmadığını kontrol etmemiz gerekir.
+"For All Entries kullanımında dikkat edilmesi gereken nokta ise, eğer anahtar tablonuz boş ise tüm kayıtlar okunur. Bu nedenle For All Entries yazmadan önce mutlaka anahtar tablonun boş olup olmadığını kontrol etmemiz gerekir.
 
-Şimdi örnek bir uygulama yaparak, ilgili For All Entries kuralını nasıl uygulayacağımızı gösterelim.
+"Şimdi örnek bir uygulama yaparak, ilgili For All Entries kuralını nasıl uygulayacağımızı gösterelim.
 
-Örneğimizde; Satınalma siparişine istinaden yaratılmış olan mal girişleri ve faturaları okuyacak bir sorgu oluşturalım.
+"Örneğimizde; Satınalma siparişine istinaden yaratılmış olan mal girişleri ve faturaları okuyacak bir sorgu oluşturalım.
 
-Kullanacağımız tablolar aşağıdakilerdir;
+"Kullanacağımız tablolar aşağıdakilerdir;
 
 EKBE : Satınalma Belge Akışı tablosu
 MKPF : Malzeme Belgesi Başlık Tablosu
@@ -26,28 +26,42 @@ Yukarıda detaylarını verdiğim gibi aslında gideceğimiz tabloları EKBE-VGA
 Şimdi yukarıdaki durumun algoritmasını yazacak olur isek, kullanıcıdan  aldığımız tarih bilgisini (S_BUDAT) EKBE_BUDAT alanına eşitleyerek algoritmamızı oluşturalım.
 
 
-SELECT * FROM EKBE INTO TABLE GT_EKBE
-		WHERE BUDAT IN S_BUDAT.
+*&---------------------------------------------------------------------*
+*& Report ZFC_EXAMPLE_8
+*&---------------------------------------------------------------------*
+*&
+*&---------------------------------------------------------------------*
+report zfc_example_8.
 
-*For All Entries için kullanılacak tablo yapısı
-
+"for all entries için tablolar
+data: gv_budat type ekbe-budat,
+      gt_ekbe type TABLE OF ekbe WITH HEADER LINE,
+      gt_mseg type TABLE OF mseg WITH HEADER LINE,
+      gt_rseg type TABLE OF rseg WITH HEADER LINE.
 DATA : BEGIN OF S_KEY,
-	GJAHR	LIKE	EKBE-GJAHR,
-	BELNR	LIKE	EKBE-BELNR,
-	BUZEI	LIKE	RSEG-BUZEI,
+  GJAHR LIKE  EKBE-GJAHR,
+  BELNR LIKE  EKBE-BELNR,
+  BUZEI LIKE  RSEG-BUZEI,
        END OF S_KEY,
-       GT_KEY1	LIKE TABLE OF S_KEY WITH HEAD LINE,
-       GT_KEY2	LIKE TABLE OF S_KEY WITH HEAD LINE.
+       GT_KEY1  LIKE TABLE OF S_KEY WITH HEADER LINE,
+       GT_KEY2  LIKE TABLE OF S_KEY WITH HEADER LINE.
+
+SELECT-OPTIONS S_BUDAT FOR gv_budat.
+
+SELECT * FROM EKBE INTO TABLE GT_EKBE
+    WHERE BUDAT IN S_BUDAT.
+
+
 
 *Anahtar Tablolar Dolduruluyor
 LOOP AT GT_EKBE.
-	IF GT_EKBE_VGABE EQ '1'. "Mal Girişi"
-		MOVE-CORRESPONDING GT_EKBE TO GT_KEY1.
-		COLLECT GT_KEY1.
-	ELSEIF GT_EKBE_VGABE EQ '2'. "Fatura Girişi"
-		MOVE-CORRESPONDING GT_EKBE TO GT_KEY2.
-		COLLECT GT_KEY2. 
-	ENDIF.
+  IF GT_EKBE-VGABE EQ '1'. "Mal Girişi"
+    MOVE-CORRESPONDING GT_EKBE TO GT_KEY1.
+    COLLECT GT_KEY1.
+  ELSEIF GT_EKBE-VGABE EQ '2'. "Fatura Girişi"
+    MOVE-CORRESPONDING GT_EKBE TO GT_KEY2.
+    COLLECT GT_KEY2.
+  ENDIF.
 ENDLOOP.
 
 *Anahtar Tablo Boş mu diye kontrol ediyoruz.
@@ -55,10 +69,10 @@ IF GT_KEY1[] IS NOT INITIAL.
 
 *Tüm Mal Girişleri tek bir seferde okunur
 SELECT * INTO TABLE GT_MSEG FROM MSEG
-	FOR ALL ENTRIES IN GT_KEY1
-	WHERE GJAHR EQ GT_KEY1-GJAHR AND
-	MBLNR EQ GT_KEY1-MBLNR AND 
-	ZEILE EQ GT_KEY1-BUZEI(4).
+  FOR ALL ENTRIES IN GT_KEY1
+  WHERE GJAHR EQ GT_KEY1-GJAHR AND
+  MBLNR EQ GT_KEY1-BELNR AND
+  ZEILE EQ GT_KEY1-BUZEI(4).
 ENDIF.
 
 
@@ -67,8 +81,8 @@ IF GT_KEY2[] IS NOT INITIAL.
 
 *Tüm Fatura Girişleri tek bir seferde okunur
 SELECT * INTO TABLE GT_RSEG FROM RSEG
-	FOR ALL ENTRIES IN GT_KEY2
-	WHERE GJAHR EQ GT_KEY2-GJAHR AND
-	BELNR EQ GT_KEY2-BELNR AND 
-	BUZEI EQ GT_KEY2-BUZEI.
+  FOR ALL ENTRIES IN GT_KEY2
+  WHERE GJAHR EQ GT_KEY2-GJAHR AND
+  BELNR EQ GT_KEY2-BELNR AND
+  BUZEI EQ GT_KEY2-BUZEI.
 ENDIF.

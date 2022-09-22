@@ -1,5 +1,5 @@
 
-      CALL FUNCTION 'POPUP_WITH_2_BUTTONS_TO_CHOOSE'
+      CALL FUNCTION 'POPUP_WITH_2_BUTTONS_TO_CHOOSE'"2 Butonlu popup
         EXPORTING
           diagnosetext1 = 'Lütfen İstenilen Form Türünü Seçiniz...'
           textline1     = space
@@ -12,7 +12,7 @@
 
 -----------------------------------------------
 
-           CALL FUNCTION 'K_KKB_POPUP_RADIO2'
+           CALL FUNCTION 'K_KKB_POPUP_RADIO2'"2 radio butonlu popup
         EXPORTING
           i_title   = 'TITLE1'
           i_text1   = 'SMARTFORM'
@@ -30,7 +30,7 @@
 
 --------------------------------------------
 
-CALL FUNCTION 'POPUP_TO_CONFIRM'
+CALL FUNCTION 'POPUP_TO_CONFIRM'"Onay popupı
           EXPORTING
             text_question         = 'Seçilen kayıtlar silinecek'
             text_button_1         = 'Evet'
@@ -48,7 +48,7 @@ CALL FUNCTION 'POPUP_TO_CONFIRM'
 Sonuçlar int deger olarak doner
 
 ------------------------------------------------
- call function 'CC_POPUP_STRING_INPUT'
+ call function 'CC_POPUP_STRING_INPUT'"String deger isteyen popup
         exporting
           property_name = 'Müşteri adres bilgisi'
         changing
