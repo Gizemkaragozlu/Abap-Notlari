@@ -61,7 +61,7 @@
 - <a href='https://github.com/furkancosgun/Abap-Notlari/blob/main/ABAP/59-Mail%20gonderme.abap'>Mail Gonderme</a>
 - <a href='https://github.com/furkancosgun/Abap-Notlari/blob/main/ABAP/60-String%20functions.abap'>String Functions</a>
 - <a href='https://github.com/furkancosgun/Abap-Notlari/blob/main/ABAP/61-Operations.abap'>Operations</a>
-- <a href='https://github.com/furkancosgun/Abap-Notlari/blob/main/ABAP/62-Sys%20vars.abapp'>Sistem Degiskenleri</a>
+- <a href='https://github.com/furkancosgun/Abap-Notlari/blob/main/ABAP/62-Sys%20vars.abap'>Sistem Degiskenleri</a>
 - <a href='https://github.com/furkancosgun/Abap-Notlari/blob/main/ABAP/63-Itab.abap'>Internal Tablolar</a>
 - <a href='https://github.com/furkancosgun/Abap-Notlari/blob/main/ABAP/64-Include%20structure.abap'>Include Structure</a>
 - <a href='https://github.com/furkancosgun/Abap-Notlari/blob/main/ABAP/65-Alv%20ve%20selection%20screen%20ayn%C4%B1%20ekran%20kullan%C4%B1m%C4%B1.abap'>Alv ve Selection Screen Aynı Ekran Kullanımı</a>
