@@ -94,6 +94,6 @@
 #  Contributing
 ### Katkılara her zaman açığım!
 
-### Eklemek istediğiniz bişey varsa bir Branch oluşturun ve onay için bir Pull Request gönderin.
+### Eklemek istediğiniz bişey varsa bir Branch oluşturun ve onay için Pull Request gönderin.
 
 <img src='https://sap.teampro.com.tr:50001/sap/public/bc/ui2/logon/img/sap_logo.png' height = 50 width = 100/>
