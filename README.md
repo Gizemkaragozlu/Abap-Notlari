@@ -91,7 +91,7 @@
 - <a href='https://github.com/furkancosgun/Abap-Notlari/blob/main/ABAP/89-me21n-Sat-Olmadan-Sipariş-Acilmaz.abap'>ME21N Sat Olmadan Siparis Acilmaz</a>
 - <a href='https://github.com/furkancosgun/Abap-Notlari/blob/main/ABAP/90-MailGonderme-Pdf.abap'>PDF Dosyasını Mail Ile Gonderme</a>
 - <a href='https://github.com/furkancosgun/Abap-Notlari/blob/main/ABAP/91-LoopPerformansIslemleri.abap'>Loop Performans Islemleri</a>
-- <a href='https://github.com/furkancosgun/Abap-Notlari/blob/main/ABAP/92-Deserialize%20and%20Serialize%20JSON.abapp'>Deserialize and Serialize JSON</a>
+- <a href='https://github.com/furkancosgun/Abap-Notlari/blob/main/ABAP/92-Deserialize%20and%20Serialize%20JSON.abap'>Deserialize and Serialize JSON</a>
 
 
 #  Contributing
