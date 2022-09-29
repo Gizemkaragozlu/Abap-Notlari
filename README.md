@@ -17,7 +17,7 @@
 - <a href='https://github.com/furkancosgun/Abap-Notlari/blob/main/ABAP/15-dynamic-parameters.abap'>Dynamic Parameters</a>
 - <a href='https://github.com/furkancosgun/Abap-Notlari/blob/main/ABAP/16-salv%20kullanim-basit.abap'>Salv Kullanimi Basit</a>
 - <a href='https://github.com/furkancosgun/Abap-Notlari/blob/main/ABAP/17-Salv-kullanimi%20geli%C5%9Ftilmi%C5%9F.abap'>Salv Kullanimi Geliştrilmiş</a>
-- <a href='https://github.com/furkancosgun/Abap-Notlari/blob/main/ABAP/18-REUSE%20ALV%2C%20Fieldcatalog%20ve%20Layout.abapp'>REUSE ALV, Fieldcatalog ve Layout</a>
+- <a href='https://github.com/furkancosgun/Abap-Notlari/blob/main/ABAP/18-REUSE%20ALV%2C%20Fieldcatalog%20ve%20Layout.abap'>REUSE ALV, Fieldcatalog ve Layout</a>
 - <a href='https://github.com/furkancosgun/Abap-Notlari/blob/main/ABAP/19-Resue%20Alv-Merge%20kullan%C4%B1m%C4%B1.abap'>Resue Alv-Merge Kullanımı</a>
 - <a href='https://github.com/furkancosgun/Abap-Notlari/blob/main/ABAP/20-%20REUSE%20ALV%20Top%20of%20Page%20ve%20End%20of%20List.abap'>REUSE ALV Top of Page ve End of List</a>
 - <a href='https://github.com/furkancosgun/Abap-Notlari/blob/main/ABAP/21-%20REUSE%20ALV%20PF%20STATUS%20EKLEME.abap'>Reuse ALV PF Status Ekleme</a>
@@ -73,7 +73,7 @@
 - <a href='https://github.com/furkancosgun/Abap-Notlari/blob/main/ABAP/71-OO%20alv%20cls%20.abap'>OO ALV Kullanımı (Class) </a>
 - <a href='https://github.com/furkancosgun/Abap-Notlari/blob/main/ABAP/72-Forma%20tablo%20gonderme.abap'>Forma Tablo Gonderme</a>
 - <a href='https://github.com/furkancosgun/Abap-Notlari/blob/main/ABAP/73-Reuse%20alv%20selectable%20column%20and%20line%20color%20.abap'>Reuse ALV Selectable Column And Line Color </a>
-- <a href='https://github.com/furkancosgun/Abap-Notlari/blob/main/ABAP/74-Mail%20gonderme.abapp'>Mail Gonderme</a>
+- <a href='https://github.com/furkancosgun/Abap-Notlari/blob/main/ABAP/74-Mail%20gonderme.abap'>Mail Gonderme</a>
 - <a href='https://github.com/furkancosgun/Abap-Notlari/blob/main/ABAP/75-Reuse%20Alv%20top%20of%20page.abap'>Reuse ALV Top Of Page Ekleme</a>
 - <a href='https://github.com/furkancosgun/Abap-Notlari/blob/main/ABAP/76-Program%20performans%20analizi.abap'>Program Performans Analizi</a>
 - <a href='https://github.com/furkancosgun/Abap-Notlari/blob/main/ABAP/77-K%C4%B1r%C4%B1nt%C4%B1%20raporu.abap'>Zli Ornek Program</a>
